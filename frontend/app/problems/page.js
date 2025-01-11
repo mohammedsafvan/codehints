@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
+import Spinner from "@/components/Spinner";
 const QuestionRow = ({ question }) => {
   const router = useRouter();
 
@@ -77,11 +78,9 @@ const QuestionTable = () => {
 
   if (isLoading) {
     return (
-      <Card>
-        <CardContent className="flex justify-center items-center h-64">
-          <p className="text-gray-500">Loading questions...</p>
-        </CardContent>
-      </Card>
+      <div className="h-screen flex align-center justify-center">
+        <Spinner />
+      </div>
     );
   }
 
