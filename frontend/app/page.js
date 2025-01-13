@@ -1,52 +1,27 @@
 "use client";
 
+import React from "react";
+import { useRouter } from "next/navigation";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { Button } from "@/components/ui/button";
 
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable"
+export default function BackgroundGradientAnimationDemo() {
+  const router = useRouter();
 
-
-
-
-import Monaco from "@/components/Monaco";
-import InactivityWrapper from "@/components/InactivityWrapper";
-import { useState, useEffect } from 'react';
-
-export default function CodeEditor() {
-  const [userCode, setUserCode] = useState("");
-  const url = "10.0.21.149:8000/generate";
-  const handleCodeChange = (code) => {
-    setUserCode(code);
-    console.log(userCode)
+  const handleClick = () => {
+    router.push("/problems");
   };
-  
-  const sendData = () => {
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user_code : userCode,
-        user_question: 'Hello'
-      })
-    })
-  }
 
-  useEffect(sendData, [userCode]);
-  
   return (
-    <div className="h-screen p-4">
-      <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel>Question</ResizablePanel>
-        <ResizableHandle />
-        <ResizablePanel>
-          <InactivityWrapper className="h-full"><Monaco handleCodeChange={handleCodeChange}/></InactivityWrapper>
-        </ResizablePanel>
-      </ResizablePanelGroup>
-    </div>
-
+    <BackgroundGradientAnimation>
+      <div className="absolute z-50 inset-0 flex flex-col items-center justify-center text-white font-bold px-4 text-3xl text-center md:text-4xl lg:text-7xl">
+        <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+          CodeHints⚡
+        </p>
+        <Button className="text-2xl m-4" size="lg" onClick={handleClick}>
+          Go to Problems
+        </Button>
+      </div>
+    </BackgroundGradientAnimation>
   );
 }

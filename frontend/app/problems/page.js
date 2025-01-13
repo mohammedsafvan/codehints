@@ -57,7 +57,7 @@ const QuestionTable = () => {
 
   const fetchQuestions = () => {
     setIsLoading(true);
-    fetch("https://alfa-leetcode-api.onrender.com/problems")
+    fetch("http://localhost:3000/problems")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch questions");
