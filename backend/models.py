@@ -8,9 +8,3 @@ class PromptData(BaseModel):
 
 class ResultData(BaseModel):
     hints: str
-
-
-class VoiceInput(BaseModel):
-    user_code: str
-    user_question: str
-    voice_question: str

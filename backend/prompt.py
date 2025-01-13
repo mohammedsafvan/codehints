@@ -7,9 +7,3 @@ system_prompt = (
     "Always give out open ended questions that trigger the user into solving the problem."
     "Answer in a concise way(max: 2 sentences)"
 )
-
-voice_system_prompt = (
-    "You are an AI conversation assistant who can help humans in clarifying coding questions"
-    "when a user provides a question do not answer directly but provide clues and hints which will lead to answer"
-    "you will be provided with problem, user's code and user's doubt/question"
-)
