@@ -6,7 +6,6 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-import { debounce } from "lodash";
 import Monaco from "@/components/Monaco";
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
@@ -144,15 +143,6 @@ export default function CodeEditor() {
             >
               Record
             </Button>
-
-            {/* <Button */}
-            {/*   className="px-6" */}
-            {/*   size="lg" */}
-            {/*   onClick={() => recognition.stop()} */}
-            {/* > */}
-            {/*   Stop */}
-            {/* </Button> */}
-            <h1>{transcript}</h1>
           </>
         )}
       </div>

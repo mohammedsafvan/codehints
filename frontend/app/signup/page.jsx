@@ -8,7 +8,11 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPasword: "",
+  });
   return (
     <div className="flex justify-center items-center h-screen bg-gray-950 dark ">
       <div>
@@ -16,7 +20,7 @@ const page = () => {
           <div className="flex flex-col text-white">
             <div className="justify-center items-center w-full flex flex-col ">
               <h1 className="font-bold text-3xl my-4">CodeHints💡</h1>
-              <h1 className="font-bold  justify-center text-xl">Login</h1>
+              <h1 className="font-bold  justify-center text-xl">Signup</h1>
             </div>
             <div className="flex mt-8 flex-col gap-y-5">
               <Input
@@ -33,9 +37,16 @@ const page = () => {
                   setFormData({ ...formData, password: e.target.value })
                 }
               />
-              <Button>🔑 Login</Button>
-              <Button onClick={() => router.push("/signup")}>
-                🆕 Don't have an Account
+              <Input
+                type="password"
+                placeholder="Confirm Password"
+                onChange={(e) =>
+                  setFormData({ ...formData, confirmPassword: e.target.value })
+                }
+              />
+              <Button>🔑 Signup</Button>
+              <Button onClick={() => router.push("/login")}>
+                🆕 Already have an account
               </Button>
             </div>
           </div>
